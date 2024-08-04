@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nuxt dev",
     "dev:host": "nuxt dev --host",
-    "build": "nuxt build",
+    "build": "node prebuild.js",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
