@@ -5,6 +5,7 @@ const themeKeys = [
   'secondary-content',
   'accent',
   'accent-content',
+  'neutral',
   'neutral-content',
   'base-100',
   'base-200',

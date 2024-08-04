@@ -11,6 +11,7 @@ const dark: Theme = {
   'base-100': '#191919',
   'base-200': '#232323',
   'base-300': '#0a0a0a',
+  neutral: '#232323',
 }
 
 const light: Theme = {
@@ -20,6 +21,8 @@ const light: Theme = {
   'base-100': '#ffffff',
   'base-200': '#f5f5f5',
   'base-300': '#ecedf0',
+  neutral: '#ecedf0',
+  'neutral-content': '#1f2937',
 }
 
 const config: Config = {
