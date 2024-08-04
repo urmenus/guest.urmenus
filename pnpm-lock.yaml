@@ -20,6 +20,12 @@ importers:
       '@pinia/nuxt':
         specifier: ^0.5.2
         version: 0.5.2(magicast@0.3.4)(rollup@4.19.1)(vue@3.4.35)
+      '@vee-validate/nuxt':
+        specifier: ^4.13.2
+        version: 4.13.2(magicast@0.3.4)(rollup@4.19.1)(vue@3.4.35)
+      '@vee-validate/valibot':
+        specifier: ^4.13.2
+        version: 4.13.2(vue@3.4.35)
       '@vueuse/core':
         specifier: ^10.11.0
         version: 10.11.0(vue@3.4.35)
@@ -35,6 +41,12 @@ importers:
       pinia:
         specifier: ^2.2.0
         version: 2.2.0(vue@3.4.35)
+      valibot:
+        specifier: ^0.37.0
+        version: 0.37.0
+      vee-validate:
+        specifier: ^4.13.2
+        version: 4.13.2(vue@3.4.35)
       vue:
         specifier: latest
         version: 3.4.35
@@ -1084,6 +1096,12 @@ packages:
     resolution: {integrity: sha512-kpMWWwm8cOwo4gw4An43pz30l2CqNtmJpX5Xsu79rwf6Viq8jHAjk6BGqyKy220M2bpa0Va4fnR532SgGO1YgQ==}
     peerDependencies:
       vue: '>=2.7 || >=3'
+
+  '@vee-validate/nuxt@4.13.2':
+    resolution: {integrity: sha512-rpYYO2isCrgHRdJnKRXGPn8aqhyZvCPUJgNubftPum1txbngkO/LNiFsZdFDO7auGprDAQf7axpszRfeKoCGVg==}
+
+  '@vee-validate/valibot@4.13.2':
+    resolution: {integrity: sha512-Vz/sAJc0i1Z1zsXbER15/7EUcD2mYHCaBrmmFs6oFBSDFoDXwJYjPMSklHqyOUVEt15wBVd9HU52f+4cD/5kxw==}
 
   '@vercel/nft@0.26.5':
     resolution: {integrity: sha512-NHxohEqad6Ra/r4lGknO52uc/GrWILXAMs1BB4401GTqww0fw1bAqzpG1XHuDO+dprg4GvsD9ZLLSsdo78p9hQ==}
@@ -3290,6 +3308,10 @@ packages:
     resolution: {integrity: sha512-tLq3bSNx+xSpwvAJnzrK0Ep5CLNWjvFTOp71URMaAEWBfRb9nnJiBoUe0tF8bI4ZFO3omgBR6NvnbzVUT3Ly4g==}
     engines: {node: '>=14.16'}
 
+  type-fest@4.23.0:
+    resolution: {integrity: sha512-ZiBujro2ohr5+Z/hZWHESLz3g08BBdrdLMieYFULJO+tWc437sn8kQsWLJoZErY8alNhxre9K4p3GURAG11n+w==}
+    engines: {node: '>=16'}
+
   type-is@1.6.18:
     resolution: {integrity: sha512-TkRKr9sUTxEH8MdfuCSP7VizJyzRNMjj2J2do2Jr3Kym598JVdEksuzPQCnlFPW4ky9Q+iA+ma9BGm06XQBy8g==}
     engines: {node: '>= 0.6'}
@@ -3412,9 +3434,25 @@ packages:
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
 
+  valibot@0.33.3:
+    resolution: {integrity: sha512-/fuY1DlX8uiQ7aphlzrrI2DbG0YJk84JMgvz2qKpUIdXRNsS53varfo4voPjSrjUr5BSV2K0miSEJUOlA5fQFg==}
+
+  valibot@0.37.0:
+    resolution: {integrity: sha512-FQz52I8RXgFgOHym3XHYSREbNtkgSjF9prvMFH1nBsRyfL6SfCzoT1GuSDTlbsuPubM7/6Kbw0ZMQb8A+V+VsQ==}
+    peerDependencies:
+      typescript: '>=5'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+
   vary@1.1.2:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
     engines: {node: '>= 0.8'}
+
+  vee-validate@4.13.2:
+    resolution: {integrity: sha512-HlpR/6MJ92TW9f135umMZKUqdd/tFQTxLNSf2ImbU4Y/MlLVAUpF1l64VdjTOhbClAqPjCb5p/SqHDxLpUHXrw==}
+    peerDependencies:
+      vue: ^3.4.26
 
   vite-hot-client@0.2.3:
     resolution: {integrity: sha512-rOGAV7rUlUHX89fP2p2v0A2WWvV3QMX2UYq0fRqsWSvFvev4atHWqjwGoKaZT1VTKyLGk533ecu3eyd0o59CAg==}
@@ -4708,6 +4746,25 @@ snapshots:
       hookable: 5.5.3
       unhead: 1.9.16
       vue: 3.4.35
+
+  '@vee-validate/nuxt@4.13.2(magicast@0.3.4)(rollup@4.19.1)(vue@3.4.35)':
+    dependencies:
+      '@nuxt/kit': 3.12.4(magicast@0.3.4)(rollup@4.19.1)
+      local-pkg: 0.5.0
+      vee-validate: 4.13.2(vue@3.4.35)
+    transitivePeerDependencies:
+      - magicast
+      - rollup
+      - supports-color
+      - vue
+
+  '@vee-validate/valibot@4.13.2(vue@3.4.35)':
+    dependencies:
+      type-fest: 4.23.0
+      valibot: 0.33.3
+      vee-validate: 4.13.2(vue@3.4.35)
+    transitivePeerDependencies:
+      - vue
 
   '@vercel/nft@0.26.5':
     dependencies:
@@ -7221,6 +7278,8 @@ snapshots:
 
   type-fest@3.13.1: {}
 
+  type-fest@4.23.0: {}
+
   type-is@1.6.18:
     dependencies:
       media-typer: 0.3.0
@@ -7366,7 +7425,17 @@ snapshots:
 
   util-deprecate@1.0.2: {}
 
+  valibot@0.33.3: {}
+
+  valibot@0.37.0: {}
+
   vary@1.1.2: {}
+
+  vee-validate@4.13.2(vue@3.4.35):
+    dependencies:
+      '@vue/devtools-api': 6.6.3
+      type-fest: 4.23.0
+      vue: 3.4.35
 
   vite-hot-client@0.2.3(vite@5.3.5(@types/node@22.0.0)(terser@5.31.3)):
     dependencies:
