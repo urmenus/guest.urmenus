@@ -12,19 +12,22 @@
   },
   "dependencies": {
     "@nuxt/icon": "^1.4.5",
+    "@nuxt/image": "^1.7.0",
     "@nuxtjs/color-mode": "^3.4.2",
+    "@nuxtjs/i18n": "^8.3.3",
     "@nuxtjs/tailwindcss": "^6.12.1",
-    "@pinia/nuxt": "^0.5.2",
+    "@pinia/nuxt": "^0.5.3",
     "@vee-validate/nuxt": "^4.13.2",
     "@vee-validate/valibot": "^4.13.2",
     "@vueuse/core": "^10.11.0",
     "@vueuse/nuxt": "^10.11.0",
     "@vueuse/router": "^10.11.0",
     "nuxt": "^3.12.4",
-    "pinia": "^2.2.0",
+    "pinia": "^2.2.1",
     "valibot": "^0.37.0",
     "vee-validate": "^4.13.2",
-    "vue": "latest"
+    "vue": "^3.4.36",
+    "vue3-lottie": "^3.3.0"
   },
   "devDependencies": {
     "@iconify-json/bx": "^1.1.10",

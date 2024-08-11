@@ -10,6 +10,8 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@nuxtjs/color-mode',
     '@vee-validate/nuxt',
+    '@nuxt/image',
+    '@nuxtjs/i18n',
   ],
   tailwindcss: {
     cssPath: ['@/assets/css/tailwind.css', { injectPosition: 'first' }],
@@ -33,10 +35,25 @@ export default defineNuxtConfig({
     presets: [{ from: '@/src/constants/routing', imports: ['NUXT_LINKS'] }],
   },
 
-  vite: {
-    optimizeDeps: {
-      exclude: ['vee-validate'],
-    },
+  vite: { optimizeDeps: { exclude: ['vee-validate'] } },
+  routeRules: {
+    '/profile': { ssr: false },
   },
+  i18n: {
+    vueI18n: '@/i18n.config.ts',
+    lazy: true,
+    langDir: 'src/i18n',
+    defaultLocale: 'ru',
+    strategy: 'no_prefix',
+    dynamicRouteParams: false,
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'un_i18n',
+      // redirectOn: 'root', // recommended
+      cookieCrossOrigin: true,
+    },
+    locales: [{ code: 'ru', name: 'Русский', iso: 'ru_RU', file: 'ru_RU.ts' }],
+  },
+
   devServer,
 })
