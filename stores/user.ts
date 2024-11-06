@@ -17,18 +17,19 @@ export type User = {
 }
 
 export const useUser = defineStore('UserPinia', () => {
-  const user = shallowRef<User | null>({
-    firstName: 'Александр',
-    lastName: 'Лядов',
-    email: '69@milley.uno',
-    id: 'sad_boy1223',
-    isEmailVerified: false,
-    createdAt: '2024-08-03T12:02:16.519Z',
-    history: [
-      { slug: 'headmen', title: 'Headmen', cost: 1566.54 },
-      { slug: 'monopoly-moscow', title: 'Monopoly Moscow', cost: 2889.22 },
-    ],
-  })
+  // const user = shallowRef<User | null>({
+  //   firstName: 'Александр',
+  //   lastName: 'Лядов',
+  //   email: '69@milley.uno',
+  //   id: 'sad_boy1223',
+  //   isEmailVerified: false,
+  //   createdAt: '2024-08-03T12:02:16.519Z',
+  //   history: [
+  //     { slug: 'headmen', title: 'Headmen', cost: 1566.54 },
+  //     { slug: 'monopoly-moscow', title: 'Monopoly Moscow', cost: 2889.22 },
+  //   ],
+  // })
+  const user = shallowRef<User | null>(null)
 
   const changeUser = (_user: Partial<User>, isLogout = false) => {
     if (isLogout) {

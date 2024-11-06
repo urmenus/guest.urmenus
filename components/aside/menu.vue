@@ -1,14 +1,16 @@
 <template>
   <ul class="menu text-base-content w-80 flex px-4 justify-center pt-20">
     <li>
-      <a href="" @click.prevent="toIndex">Главная</a>
+      <a href="" @click.prevent="toIndex"><Icon name="bx:chevron-right" size="1.25rem" /> Главная</a>
     </li>
     <client-only>
       <li v-if="lastProject">
         <ul>
           <li class="menu-title">Последнее</li>
           <li>
-            <a href="" @click.prevent="toSlug(lastProject ? lastProject.slug : '')">{{ lastProject.title }}</a>
+            <a href="" @click.prevent="toSlug(lastProject ? lastProject.slug : '')">
+              <Icon name="bx:chevron-right" size="1.25rem" />{{ lastProject.title }}
+            </a>
           </li>
         </ul>
       </li>
@@ -17,7 +19,7 @@
       <ul>
         <li class="menu-title">Ранее посещали</li>
         <li v-for="h in user.history" :key="h.slug">
-          <a href="" class="break-words line-clamp-1 h-8" @click.prevent="toSlug(h.slug)">{{ h.title }}</a>
+          <a href="" @click.prevent="toSlug(h.slug)"> <Icon name="bx:chevron-right" size="1.25rem" /> {{ h.title }} </a>
         </li>
       </ul>
     </li>
@@ -27,6 +29,7 @@
 <script lang="ts" setup>
 import type { Project } from '@/types'
 import { useStorage } from '@vueuse/core'
+import { NUXT_LINKS } from '@/src/constants/routing'
 
 const emit = defineEmits(['close'])
 

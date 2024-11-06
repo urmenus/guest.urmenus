@@ -21,6 +21,24 @@
 useHead({
   titleTemplate: (titleChunk) => (titleChunk ? `${titleChunk} | Menus` : 'Menus'),
 })
+const { changeUser } = useUser()
+
+onMounted(() => {
+  const q = localStorage.getItem('QWE') ?? ''
+  if (q !== '')
+    changeUser({
+      firstName: 'Александр',
+      lastName: 'Лядов',
+      email: '69@milley.uno',
+      id: 'sad_boy1223',
+      isEmailVerified: false,
+      createdAt: '2024-08-03T12:02:16.519Z',
+      history: [
+        { slug: 'headmen', title: 'Headmen', cost: 1566.54 },
+        { slug: 'monopoly-moscow', title: 'Monopoly Moscow', cost: 2889.22 },
+      ],
+    })
+})
 </script>
 
 <style>

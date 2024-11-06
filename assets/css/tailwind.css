@@ -26,6 +26,9 @@
     -moz-appearance: textfield;
     appearance: textfield;
   }
+  .no-arrow::-webkit-calendar-picker-indicator {
+    @apply !hidden !opacity-0;
+  }
 
   .no-spinner::-webkit-outer-spin-button,
   .no-spinner::-webkit-inner-spin-button {

@@ -1,37 +1,63 @@
 <template>
-  <transition @enter="toggleVisible" @leave="toggleVisible">
-    <dialog
-      class="modal modal-bottom sm:modal-middle"
-      v-if="visible"
-      @click="handleClose"
-      @keydown.escape="handleClose"
-    >
-      <div class="modal-box" :class="{ 'pt-4': !header }" @click.stop="" @keydown.escape="handleClose">
-        <div v-if="header">
-          <slot name="header" />
-        </div>
-        <slot name="content" />
+  <Teleport to="#teleports">
+    <transition @enter="toggleVisible" @leave="toggleVisible">
+      <dialog
+        class="modal modal-bottom sm:modal-middle"
+        v-if="visible"
+        @click="handleClose"
+        @keydown.escape="handleClose"
+      >
+        <div class="modal-box" :class="{ 'pt-4': !header }" @click.stop="" @keydown.escape="handleClose">
+          <div v-if="header">
+            <slot name="header" />
+          </div>
+          <slot name="content" />
 
-        <div class="modal-action" v-if="buttons">
-          <slot name="buttons">
-            <button class="btn btn-error" @click="handleClose">Cancel</button>
-            <button class="btn btn-success" @click="handleProceed">Yes, Proceed</button>
-          </slot>
+          <div class="modal-action" :class="buttonPosition" v-if="isButtonsEnabled">
+            <slot name="buttons">
+              <button class="btn btn-error" @click="handleClose">Отменить</button>
+              <button class="btn btn-success" @click="handleProceed">Продолжить</button>
+            </slot>
+          </div>
         </div>
-      </div>
-    </dialog>
-  </transition>
+      </dialog>
+    </transition>
+  </Teleport>
 </template>
 
 <script lang="ts" setup>
 const modelValue = defineModel<boolean>({ required: false, default: false })
 
-const { name } = withDefaults(defineProps<{ name?: string; header?: boolean; buttons?: boolean }>(), {
+type ModalProps = {
+  title?: string
+  header?: boolean
+  buttons?: {
+    enabled?: boolean
+    position?: 'left' | 'right' | 'center' | 'between'
+  }
+}
+
+const { title, buttons } = withDefaults(defineProps<ModalProps>(), {
   header: true,
-  buttons: true,
+  buttons: () => ({
+    enabled: true,
+    position: 'right',
+  }),
+})
+const isButtonsEnabled = computed(() => (typeof buttons.enabled === 'undefined' ? true : buttons.enabled))
+
+const buttonPosition = computed(() => {
+  const positionClasses = {
+    left: 'justify-start',
+    right: 'justify-end',
+    center: 'justify-center',
+    between: 'justify-between',
+  }
+
+  return positionClasses[buttons.position ?? 'right']
 })
 
-const { open, close, toggle, visible } = useModal(name)
+const { open, close, toggle, visible } = useModal(title)
 
 const emit = defineEmits(['closed', 'proceed'])
 

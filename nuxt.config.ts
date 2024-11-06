@@ -1,4 +1,4 @@
-const devServer = { https: true }
+import { devServer } from './.temp/dev'
 
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
@@ -12,6 +12,7 @@ export default defineNuxtConfig({
     '@vee-validate/nuxt',
     '@nuxt/image',
     '@nuxtjs/i18n',
+    '@hypernym/nuxt-gsap',
   ],
   tailwindcss: {
     cssPath: ['@/assets/css/tailwind.css', { injectPosition: 'first' }],
@@ -33,6 +34,13 @@ export default defineNuxtConfig({
 
   imports: {
     presets: [{ from: '@/src/constants/routing', imports: ['NUXT_LINKS'] }],
+  },
+  runtimeConfig: {
+    public: {
+      nestUrl: '',
+      baseUrl: process.env.BASE_URL || 'https://localhost:3000',
+      buildData: new Date().toISOString(),
+    },
   },
 
   vite: { optimizeDeps: { exclude: ['vee-validate'] } },
